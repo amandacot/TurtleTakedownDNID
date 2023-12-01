@@ -6,7 +6,7 @@ public class NewBehaviourScript : MonoBehaviour
 {
     
     public float moveForce;
-    public float jumpForce;
+    public float jumpForce = 2;
     public bool isOnGround = true;
     void Start()
     {
