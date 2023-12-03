@@ -3,38 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Shoot : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
-    public GameObject shootingPoint;
-    public GameObject hitboxPrefab;
-    public bool grounded;
-    // Start is called before the first frame update
 
-    // Update is called once per frame
+    private GameObject attackArea = default;
+
+    private bool attacking = false;
+
+    private float timeToAttack = 0.25f;
+    private float timer = 0f;
+
+    private void Start()
+    {
+        attackArea = transform.GetChild(0).gameObject;
+    }
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X)){
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Attack();
+        }
 
-            Vector3 playerPos = shootingPoint.transform.position;
+        if(attacking)
+        {
+            timer += Time.deltaTime;
 
-            if(grounded == false)
+            if(timer >= timeToAttack)
             {
-                Instantiate(hitboxPrefab, playerPos, transform.rotation);
-            }
-
-            else if(shootingPoint.GetComponent<SpriteRenderer>().flipX == true)
-            {
-                playerPos.x += (float)1.5;
-                playerPos.y += (float)0.5;
-                Instantiate(hitboxPrefab, playerPos, transform.rotation);
-            }
-
-            else if (shootingPoint.GetComponent<SpriteRenderer>().flipX == false)
-            {
-                playerPos.x -= (float)1.5;
-                playerPos.y += (float)0.5;
-                Instantiate(hitboxPrefab, playerPos, transform.rotation);
+                timer = 0;
+                attacking = false;
+                attackArea.SetActive(attacking);
             }
         }
+        
+    }
+
+    private void Attack()
+    {
+        attacking = true;
+        attackArea.SetActive(attacking);
     }
 }
