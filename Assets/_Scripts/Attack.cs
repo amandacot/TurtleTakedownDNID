@@ -6,8 +6,9 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    private GameObject attackArea = default;
-
+    private GameObject attackAreaGround = default;
+    private GameObject attackAreaAir = default;
+    public LayerMask groundLayer;
     private bool attacking = false;
 
     private float timeToAttack = 0.25f;
@@ -15,7 +16,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Start()
     {
-        attackArea = transform.GetChild(0).gameObject;
+        attackAreaGround = transform.GetChild(0).gameObject;
+        attackAreaAir = transform.GetChild(1).gameObject;
     }
 
     void Update()
@@ -33,7 +35,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 timer = 0;
                 attacking = false;
-                attackArea.SetActive(attacking);
+                attackAreaGround.SetActive(attacking);
+                attackAreaAir.SetActive(attacking);
             }
         }
         
@@ -42,6 +45,22 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         attacking = true;
-        attackArea.SetActive(attacking);
+
+        RaycastHit hit;
+        float raycastDistance = 1.0f;
+
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance))
+        {
+            if (hit.collider.CompareTag("Ground"))
+            {
+                attackAreaGround.SetActive(attacking);
+            }
+                
+        }
+        else
+        {
+            attackAreaAir.SetActive(attacking);
+        }
+ 
     }
 }
