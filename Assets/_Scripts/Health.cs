@@ -5,6 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private int health = 5;
+    Renderer ren;
 
     private int MAX_HEALTH = 5;
 
@@ -20,6 +21,8 @@ public class Health : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Can't have negative damage");
         }
         this.health -= amount;
+        ren = GetComponent<Renderer>();
+        ren.material.color = Color.red;
 
         if(health <= 0)
         {
