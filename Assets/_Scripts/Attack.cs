@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
+    public GameObject ground;
     private GameObject attackAreaGround = default;
     private GameObject attackAreaAir = default;
     public LayerMask groundLayer;
@@ -45,12 +45,30 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         attacking = true;
+        Debug.Log("Attacking");
 
-        RaycastHit hit;
-        float raycastDistance = 1.0f;
+        float distance = Vector3.Distance(gameObject.transform.position, ground.transform.position);
+        // Debug.Log(distance);
 
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance))
+        if(distance <= 9f)
         {
+            attackAreaGround.SetActive(attacking);
+            Debug.Log("Ground attack");
+        }
+        else
+        {
+            attackAreaAir.SetActive(attacking);
+            Debug.Log("Air attack");
+        }
+
+        // RaycastHit hit;
+        // float raycastDistance = 1.0f;
+
+        /*
+
+        if (Physics.Raycast(transform.position, Vector3.down, out hit))
+        {
+            Debug.Log(hit);
             if (hit.collider.CompareTag("Ground"))
             {
                 attackAreaGround.SetActive(attacking);
@@ -66,6 +84,6 @@ public class PlayerAttack : MonoBehaviour
         {
             attackAreaAir.SetActive(attacking);
         }
- 
+        */
     }
 }
