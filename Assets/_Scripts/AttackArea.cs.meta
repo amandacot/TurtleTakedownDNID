@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/_Scripts/PauseMenu.cs.meta
-guid: f898954f1edc54a6e9380597979a7349
-========
-guid: 6cc32a7aa2d134626b64bcf7b955e798
->>>>>>>> David:Assets/_Scripts/Attack.cs.meta
+guid: a0a464440bf3e46d0918d731952ba1fd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
