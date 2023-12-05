@@ -8,7 +8,6 @@ public class NewBehaviourScript : MonoBehaviour
     public float moveForce;
     public float jumpForce = 2;
     public bool isOnGround = true;
-    public Animation running;
     void Start()
     {
         
@@ -20,19 +19,13 @@ public class NewBehaviourScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.RightArrow)){
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(moveForce, 0), ForceMode2D.Impulse);
-            if (isOnGround == true)
-            {
-                running.Play();
-            }
+            
         }
 
         if(Input.GetKeyDown(KeyCode.LeftArrow)){
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-1*moveForce, 0), ForceMode2D.Impulse);
-            if(isOnGround == true)
-            {
-                running.Play();
-            }
+            
         }
 
         if(Input.GetKeyDown(KeyCode.Z) && isOnGround){
