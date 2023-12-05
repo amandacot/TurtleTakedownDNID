@@ -55,6 +55,11 @@ public class PlayerAttack : MonoBehaviour
             {
                 attackAreaGround.SetActive(attacking);
             }
+
+            else
+            {
+                attackAreaAir.SetActive(attacking);
+            }
                 
         }
         else
