@@ -7,6 +7,7 @@ public class NewBehaviourScript : MonoBehaviour
     Animator animator;
     public float moveForce;
     private Rigidbody2D rb;
+    private BoxCollider2D bc;
     private bool facingRight;
     public float jumpForce = 2;
     public bool isOnGround = true;
@@ -69,24 +70,26 @@ public class NewBehaviourScript : MonoBehaviour
         IEnumerator AttackCoroutine()
         {
             animator.SetBool("Attacking", true);
+            
             yield return new WaitForSeconds(0.25f); // Adjust the duration of the attack animation
 
             animator.SetBool("Attacking", false);
+            
             attackCoroutine = null;
         }
 
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && isOnGround)
         {
-            double f = 0.1;
-            gameObject.transform.localScale = new Vector3((float)3, (float)2, (float)0.5);
+            
+            
             animator.SetBool("Crouching", true);
         }
 
         if (Input.GetKeyUp(KeyCode.DownArrow) && isOnGround)
         {
-            double f = 0.1;
-            gameObject.transform.localScale = new Vector3((float)3, (float)3, (float)0.5);
+            
+            
             animator.SetBool("Crouching", false);
         }
 

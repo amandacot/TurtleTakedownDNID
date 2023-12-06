@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     public int damage = 1;
+    public bool walkRight;
 
     void Start()
     {
@@ -19,7 +20,20 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        Vector3 direction = player.position - transform.position;
+        Vector3 direction;
+
+        if (walkRight == false)
+        {
+            direction = Vector3.left;
+
+        }
+
+        else
+        {
+            direction = Vector3.right;
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        }
+        
         direction = new Vector3(direction.x, 0f, 0f); // Ignore vertical component
         direction.Normalize();
         movement = direction;
@@ -37,6 +51,9 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        
+
+
         if (collider.GetComponent<Health>() != null)
         {
             Health enemyHealth = collider.GetComponent<Health>();
