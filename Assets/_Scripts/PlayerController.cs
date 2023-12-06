@@ -44,6 +44,7 @@ public class NewBehaviourScript : MonoBehaviour
 
        
         if (Input.GetKeyDown(KeyCode.RightArrow)){
+            
             gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
@@ -53,6 +54,7 @@ public class NewBehaviourScript : MonoBehaviour
         
 
         if(Input.GetKeyDown(KeyCode.Z) && isOnGround){
+         
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,jumpForce), ForceMode2D.Impulse);
              isOnGround = false;
              
@@ -70,6 +72,7 @@ public class NewBehaviourScript : MonoBehaviour
         IEnumerator AttackCoroutine()
         {
             animator.SetBool("Attacking", true);
+            
             
             yield return new WaitForSeconds(0.25f); // Adjust the duration of the attack animation
 

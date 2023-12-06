@@ -8,6 +8,8 @@ TagManager:
   - Platform
   - Depth
   - enemy
+  - spawner
+  - bee
   layers:
   - Default
   - TransparentFX
