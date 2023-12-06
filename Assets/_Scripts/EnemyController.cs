@@ -39,8 +39,8 @@ public class Enemy : MonoBehaviour
     {
         if (collider.GetComponent<Health>() != null)
         {
-            Health health = collider.GetComponent<Health>();
-            health.Damage(damage);
+            Health enemyHealth = collider.GetComponent<Health>();
+            enemyHealth.Damage(damage);
         }
     }
 }

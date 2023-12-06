@@ -14,6 +14,7 @@ public class NewBehaviourScript : MonoBehaviour
     private float timeToAttack = 0.25f;
     private float timer = 0f;
     private Coroutine attackCoroutine;
+    Health health = new Health();
 
     private void Awake()
     {
@@ -97,7 +98,18 @@ public class NewBehaviourScript : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground")){
             isOnGround = true;
         }
-        
+
+        if (collision.gameObject.CompareTag("enemy"))
+        {
+            enemyDamage(collision.gameObject);
+        }
+
+    }
+
+    public void enemyDamage(GameObject enemy)
+    {
+        enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 5), ForceMode2D.Impulse);
+        enemy.GetComponent<Health>().Damage(1);
     }
 
 
