@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int health = 5;
     Renderer ren;
     public float timer = 0f;
+    public GameObject deathMessage;
 
     private int MAX_HEALTH = 5;
 
@@ -62,6 +63,12 @@ public class Health : MonoBehaviour
 private void Die()
     {
         Debug.Log("I am Dead!");
+        if (gameObject.CompareTag("Player"))
+        {
+            
+        }
         Destroy(gameObject);
+
+        
     }
 }

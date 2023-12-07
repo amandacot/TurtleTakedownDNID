@@ -6,6 +6,8 @@ public class mainMenu : MonoBehaviour
 {
 
     public string SceneName;
+    public string currentScene;
+    
     Renderer ren;
 
     void Start()
@@ -20,7 +22,8 @@ public class mainMenu : MonoBehaviour
             
             Debug.Log("z pressed");
             StartCoroutine(ChangeScene());
-            SceneManager.LoadScene("cutscene1", LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneName, LoadSceneMode.Single);
+            SceneManager.UnloadScene(currentScene);
         }
     }
 

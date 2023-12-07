@@ -7,6 +7,7 @@ public class enemySpawner : MonoBehaviour
     private Coroutine emitRepeater;
     public float F = 0;
     private int repeats = 0;
+    private int repeated = 0;
     
     [SerializeField]
     private GameObject smallPig;
@@ -15,6 +16,8 @@ public class enemySpawner : MonoBehaviour
     [SerializeField]
     private GameObject bee;
     public bool sendleft;
+    public GameObject player;
+    public GameObject deathMenu;
 
 
     // Start is called before the first frame update
@@ -29,6 +32,12 @@ public class enemySpawner : MonoBehaviour
         if (emitRepeater == null)
         {
             emitRepeater = StartCoroutine(emitEnemy(smallPig,bee,bigPig));
+        }
+
+        if (player == null && repeated == 0)
+        {
+            repeated += 1;
+            GameObject deathMessage = Instantiate(deathMenu);
         }
     }
 
@@ -108,4 +117,6 @@ public class enemySpawner : MonoBehaviour
         
         emitRepeater = null;
     }
+
+    
 }

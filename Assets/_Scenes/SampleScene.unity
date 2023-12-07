@@ -474,6 +474,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   timer: 0
+  deathMessage: {fileID: 0}
 --- !u!95 &378596159
 Animator:
   serializedVersion: 5
@@ -718,6 +719,8 @@ MonoBehaviour:
   bigPig: {fileID: 0}
   bee: {fileID: 8596693477956091114, guid: bab0ccb9fd8234b56b2cc48d10d418b7, type: 3}
   sendleft: 1
+  player: {fileID: 0}
+  deathMenu: {fileID: 0}
 --- !u!212 &636585772
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -979,6 +982,8 @@ MonoBehaviour:
   bigPig: {fileID: 0}
   bee: {fileID: 3056491748370780950, guid: eae60e43489544d0bbcd7b288c6c1e47, type: 3}
   sendleft: 0
+  player: {fileID: 378596149}
+  deathMenu: {fileID: 7244273005110295919, guid: eaf37fff89b694e5886fd13a61e9dc1b, type: 3}
 --- !u!212 &920417383
 SpriteRenderer:
   m_ObjectHideFlags: 0
