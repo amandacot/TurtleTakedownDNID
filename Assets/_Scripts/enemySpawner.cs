@@ -64,11 +64,11 @@ public class enemySpawner : MonoBehaviour
         {
             if (sendleft == true)
             {
-                GameObject newEnemy = Instantiate(enemy2, new Vector3(this.transform.position.x - 2, this.transform.position.y + 4.5f), Quaternion.identity);
+                GameObject newEnemy = Instantiate(enemy2, new Vector3(this.transform.position.x - 2, this.transform.position.y + Random.Range(2, 5)), Quaternion.identity);
             }
             else
             {
-                GameObject newEnemy = Instantiate(enemy2, new Vector3(this.transform.position.x + 2, this.transform.position.y + 4.5f), Quaternion.identity);
+                GameObject newEnemy = Instantiate(enemy2, new Vector3(this.transform.position.x + 2, this.transform.position.y + Random.Range(2, 5)), Quaternion.identity);
             }
         }
         
