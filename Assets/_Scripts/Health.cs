@@ -63,10 +63,7 @@ public class Health : MonoBehaviour
 private void Die()
     {
         Debug.Log("I am Dead!");
-        if (gameObject.CompareTag("Player"))
-        {
-            
-        }
+        
         Destroy(gameObject);
 
         

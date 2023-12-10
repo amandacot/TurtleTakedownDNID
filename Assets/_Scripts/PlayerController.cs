@@ -31,6 +31,8 @@ public class NewBehaviourScript : MonoBehaviour
 
         rb.velocity = new Vector2(moveDirection * moveForce, rb.velocity.y);
 
+        
+
         if(moveDirection * moveForce == 0)
         {
             animator.SetBool("Walking", false);
